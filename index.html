@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A little world made for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Caveat:wght@500;700&family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe3ec;--bg2:#fff4f0;--ink:#7a2f4a;--soft:#b5587a;--pink:#ff6fa0;--glass:rgba(255,255,255,.35);--album:#6b4a36;--paper:#f3e3c3;--pap-ink:#4a3320;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a1428;--bg2:#2a1020;--ink:#ffd6e4;--soft:#ff9fc0;--glass:rgba(255,255,255,.1);--album:#3b2a1f}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg1);color:var(--ink);font-family:'Caveat','Aref Ruqaa',cursive;overflow-x:hidden}
+section{position:relative;min-height:100vh;padding:70px 18px 80px;display:none;flex-direction:column;align-items:center;overflow:hidden}section.on{display:flex;animation:fd .7s}@keyframes fd{from{opacity:0;transform:translateY(14px)}}nav a{cursor:pointer}
+section>*{position:relative;z-index:2}
+#fl{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.f{position:absolute;bottom:-50px;animation:up linear forwards;opacity:.85}
+@keyframes up{to{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+nav{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:6px;background:var(--glass);backdrop-filter:blur(10px);padding:6px 12px;border-radius:30px}
+nav a{text-decoration:none;font-size:20px;padding:0 4px}
+h1,h2{font-family:'Dancing Script',cursive;margin:0;text-align:center}
+#hero{justify-content:center;text-align:center;background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh}
+#hero .t{font-family:'Caveat';font-size:clamp(22px,5vw,32px);letter-spacing:2px;color:var(--soft)}
+#hero h1{font-size:clamp(64px,18vw,130px);color:var(--pink);margin:10px 0;text-shadow:0 4px 18px rgba(255,111,160,.35)}
+#hero p{font-size:clamp(22px,5vw,30px);margin:4px 0}
+.btn{margin-top:28px;border:0;background:linear-gradient(135deg,#ff8db5,#ff5c93);color:#fff;font:700 24px 'Caveat';padding:14px 32px;border-radius:40px;cursor:pointer;box-shadow:0 8px 22px rgba(255,92,147,.4);animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+h2{font-size:clamp(38px,9vw,60px);color:var(--pink);margin-bottom:26px}
+#album{background:var(--album) repeating-linear-gradient(45deg,transparent 0 6px,rgba(0,0,0,.06) 6px 7px)}
+#album h2{color:#ffd9a8}
+.book{max-width:440px;width:100%;position:relative;padding:20px 16px 20px 26px;border-radius:10px 18px 18px 10px;background:linear-gradient(90deg,#2e1b10 0 16px,#7a4e32 16px);box-shadow:0 20px 50px rgba(0,0,0,.6);perspective:1200px}.book .pg{display:none}.book .pg.cur{display:block;animation:turn .7s;transform-origin:left}@keyframes turn{from{transform:rotateY(-75deg);opacity:0}}.ctl{display:flex;align-items:center;gap:22px;margin-top:22px;color:#ffd9a8;font:700 26px 'Caveat'}.ctl button{width:50px;height:50px;border-radius:50%;border:0;background:#ffd9a8;color:#5a3a26;font-size:28px;cursor:pointer}.nx{font-size:20px;padding:10px 24px;margin-top:34px}
+.pg{background:var(--paper);padding:20px 18px 22px;border-radius:6px;box-shadow:0 10px 26px rgba(0,0,0,.45),inset 0 0 40px rgba(120,80,30,.25);color:var(--pap-ink);text-align:center;position:relative}
+.pg img,.pg video{width:100%;display:block;border-radius:2px}
+.pg p{font-family:'Aref Ruqaa',serif;font-size:19px;line-height:1.8;margin:14px 0 0;direction:rtl}
+.pg:nth-child(odd){transform:rotate(-1.5deg)}.pg:nth-child(even){transform:rotate(1.5deg)}
+.corn .ph{position:relative}.corn .ph:before,.corn .ph:after{content:"";position:absolute;width:30px;height:30px;border:0 solid #2d2118;z-index:3}
+.corn .ph:before{top:-4px;left:-4px;border-width:14px 14px 0 0;border-color:#2d2118 transparent transparent transparent}
+.corn .ph:after{bottom:-4px;right:-4px;border-width:0 0 14px 14px;border-color:transparent transparent #2d2118 transparent}
+.tape:before{content:"";position:absolute;top:-14px;left:50%;width:100px;height:28px;margin-left:-50px;background:rgba(255,220,120,.7);transform:rotate(-4deg);z-index:3}
+.pola{background:#fff;padding:16px 16px 24px}
+.film{background:#1b1b1b;color:#f1dfc0;padding:30px 14px 20px;border:0}
+.film:before,.film:after{content:"";position:absolute;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,#f1dfc0 0 12px,transparent 12px 24px);opacity:.85}
+.film:before{top:8px}.film:after{bottom:auto;top:auto;bottom:6px}
+.vint img,.vint video{filter:sepia(.55) contrast(1.05)}
+.vint{border:6px double #8a6a45}
+.frame{border:10px solid #b88a44;outline:3px solid #7a5524;padding:14px}
+.heart{position:absolute;right:-8px;bottom:-12px;font-size:34px;z-index:4}
+#letter{background:linear-gradient(#ffc9dc,#ffdce8)}
+#letter .deco{position:absolute;inset:0;z-index:1}
+#env{background:none;border:0;cursor:pointer;text-align:center;color:var(--ink);margin-top:40px}
+#env .ic{font-size:110px;display:block;animation:pulse 2s infinite}
+#env span.l{font:700 34px 'Dancing Script'}
+#sheet{display:none;max-width:560px;width:100%;background:var(--paper) linear-gradient(rgba(150,100,40,.12),transparent 20%,transparent 80%,rgba(150,100,40,.2));color:var(--pap-ink);padding:34px 26px;border-radius:4px;box-shadow:0 14px 40px rgba(0,0,0,.35),inset 0 0 60px rgba(140,90,30,.35);font-family:'Amiri',serif;font-size:20px;line-height:2.1;direction:rtl;text-align:right;transform:rotate(-.6deg);animation:unf .9s ease}
+@keyframes unf{from{opacity:0;transform:scaleY(.1) translateY(-60px)}}
+#counter{background:linear-gradient(160deg,#ffb3cf,#c9a8ff 70%,#ffd6e8)}
+#counter h2{color:#fff;text-shadow:0 3px 12px rgba(120,40,90,.4)}
+.glass{background:rgba(255,255,255,.28);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.55);border-radius:28px;box-shadow:0 18px 45px rgba(110,40,100,.3);padding:28px 18px;max-width:560px;width:100%}
+.units{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center}
+.u b{display:block;font:700 clamp(34px,10vw,58px) 'Dancing Script';color:#fff;text-shadow:0 2px 10px rgba(120,40,90,.45)}
+.u i{font:600 18px 'Caveat';font-style:normal;color:#5a2a55}
+.cap{max-width:520px;text-align:center;font-size:clamp(22px,5vw,28px);color:#4a1f4a;margin:26px 0 20px;line-height:1.35}
+.song{display:flex;align-items:center;gap:14px;max-width:340px;width:100%;padding:14px 20px;border-radius:50px}
+.song button{width:54px;height:54px;border-radius:50%;border:0;background:#ff5c93;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 6px 16px rgba(255,92,147,.5)}
+.song span{font:700 24px 'Dancing Script';color:#4a1f4a}
+#last{background:radial-gradient(circle at 50% 30%,#7a1f4d,#2b0b24 75%);color:#ffe3ee}
+#last h2{color:#ffb3cf;font-size:clamp(30px,7.5vw,48px);line-height:1.2;text-shadow:0 0 22px rgba(255,111,160,.7)}
+.vid{max-width:420px;width:100%;border-radius:22px;overflow:hidden;box-shadow:0 0 50px rgba(255,92,147,.55);border:3px solid rgba(255,180,205,.6)}
+.vid video{width:100%;display:block;background:#000}
+.bk{position:absolute;white-space:nowrap;font:700 28px 'Aref Ruqaa';color:rgba(255,160,195,.55);animation:drift linear infinite;z-index:1}
+@keyframes drift{from{transform:translateY(105vh)}to{transform:translateY(-20vh)}}
+</style></head><body>
+<div id="fl"></div>
+<nav><a onclick="go('hero')">🏠</a><a onclick="go('album')">📖</a><a onclick="go('letter')">💌</a><a onclick="go('counter')">⏳</a><a onclick="go('last')">💖</a></nav>
+
+<section id="hero" class="on">
+ <div class="t">a little world made for you</div>
+ <h1>Batooty</h1>
+ <p>Hey, Batooty 🌸</p><p>I made a little place just for you</p><p>… there’s something I want you to see</p>
+ <button class="btn" onclick="go('album')">Open your little surprise 💗</button>
+</section>
+
+<section id="album">
+ <h2>Our little album 📖</h2>
+ <div class="book">
+  <div class="pg corn"><div class="ph"><img src="image1.jpg" alt=""></div><p>أول صورة شوفتها ليك وسيفتها والصورة اللي بسببها اتعرفنا ع بعض</p></div>
+  <div class="pg pola tape"><img src="image2.jpg" alt=""><p>أول سينما ندخلها سوا فيلم صقر وكناريا</p></div>
+  <div class="pg film"><img src="image3.jpg" alt=""><p style="color:#f1dfc0">أول صورة ليك اسيفها ع موبايلي كانت صورة الفيسبوك</p></div>
+  <div class="pg vint frame"><img src="image4.jpg" alt=""><span class="heart">🤍</span><p>أول حاجة اكلتها من عمايل ايديك واحلي حاجة دوقتها فعمري كله</p></div>
+  <div class="pg pola tape" style="background:#fff0f4"><img src="image5.jpg" alt=""><span class="heart">🎂</span><p>أول عيد ميلاد اتعملي فحياتي واول عيد ميلاد ليا معاك واليوم اللي اتولدت فيه من جديد لما شوفتك</p></div>
+  <div class="pg corn tape"><div class="ph"><video src="video1.mp4" controls playsinline preload="metadata"></video></div><p>يوم خروجنا وسا وقعدنا نسمع اغنية واحلي قعدة قعدناها فالشارع كنت هموت واكلك بجد</p></div>
+ </div>
+ <div class="ctl"><button onclick="fp(-1)">‹</button><span id="pn">1 / 6</span><button onclick="fp(1)">›</button></div>
+</section>
+
+<section id="letter">
+ <div class="deco" id="dk"></div>
+ <h2>A letter for you</h2>
+ <button id="env" onclick="openL()"><span class="ic">💌</span><span class="l">open me</span></button>
+ <div id="sheet">عارفة إيه أكتر حاجة بحبها فيكي؟ إنك بقيتي جزء من كل حاجة في حياتي، بقيتي أول حد بييجي في بالي لما أصحى، وآخر حد بفكر فيه قبل ما أنام. بقيت أحب أحكيلك عن يومي بكل تفاصيله، وأشاركك كل حاجة بتحصل معايا، حتى الحاجات الصغيرة اللي يمكن متفرقش مع أي حد غيرك.<br><br>أنا مش بحبك عشان إنتي بس بتفرحيني، أنا بحبك في كل حالاتك، في ضحكتك وسكوتك، في أيامك الحلوة وأيامك اللي بتبقي فيها مش قادرة تستحملي حاجة. بحبك وإنتي مبسوطة، وبحبك وإنتي محتاجة حد يسمعك من غير ما يحكم عليكي، وبحبك حتى في الأوقات اللي مش بتعرفي تعبري فيها عن اللي جواكي.<br><br>نفسي أكون الشخص اللي تحسي معاه إنك مش مضطرة تمثلي إنك كويسة وإنتي تعبانة، ولا تخبي زعلك عشان متقلقيش حد. نفسي تبقي مطمنة معايا، وتحسي إن فيه حد بيختارك كل يوم، مش عشان كل حاجة بينكم مثالية، لكن عشان إنتي بالنسباله تستاهلي الحب والمحاولة.<br><br>ولو في يوم سألتيني أنا بحبك قد إيه، فمش هعرف أديكي إجابة تكفي، بس هفضل أحاول أوريهالك في كلامي، وفي أفعالي، وفي كل مرة أختار فيها إني أسمعك وأفهمك وأكون جنبك.<br><br>بحبك يا حبيبتي، ومش عايزك تكوني مجرد أجمل جزء في حياتي، أنا عايزنا نبني حياة نكون إحنا الاتنين مبسوطين فيها، مرتاحين مع بعض، وكل واحد فينا حاسس إنه محبوب ومفهوم ومختار.<br><br>ربنا يخليكي ليا، ويخليني دايمًا سبب في ضحكتك وراحتك، وأفضل الشخص اللي قلبك يطمن لما تلاقيه جنبك. بحبك أكتر من كل الكلام اللي ممكن أقولهولك، ويا رب كل الأيام اللي جاية تورّيكي قد إيه وجودك في حياتي فارق معايا. ❤️</div>
+</section>
+
+<section id="counter">
+ <h2>Since you came into my life</h2>
+ <div class="glass"><div class="units">
+  <div class="u"><b id="d">0</b><i>days</i></div><div class="u"><b id="h">0</b><i>hours</i></div>
+  <div class="u"><b id="m">0</b><i>minutes</i></div><div class="u"><b id="s">0</b><i>seconds</i></div></div></div>
+ <div class="cap">Look how much time has passed since our story began… and somehow you are still my favorite part every day 💕</div>
+ <div class="glass song"><button id="pb" onclick="tg()">▶</button><span>Ana Maak 🎵</span></div>
+ <audio id="au" src="music1.mp3" loop></audio>
+</section>
+
+<section id="last">
+ <h2>A message from my heart to my heart</h2>
+ <div class="vid" style="margin-top:20px"><video id="v2" src="video2.mp4" controls playsinline preload="metadata"></video></div>
+</section>
+
+<script>
+const fl=document.getElementById('fl'),E=['💗','🌸','🌷','💖','🌹','💕','🌺'];
+setInterval(()=>{const e=document.createElement('span');e.className='f';e.textContent=E[Math.random()*E.length|0];
+e.style.left=Math.random()*100+'%';e.style.fontSize=(16+Math.random()*24)+'px';e.style.animationDuration=(7+Math.random()*7)+'s';
+fl.appendChild(e);setTimeout(()=>e.remove(),15000)},450);
+function openL(){document.getElementById('env').style.display='none';const s=document.getElementById('sheet');s.style.display='block';s.scrollIntoView({block:'center'})}
+const dk=document.getElementById('dk'),B=['🦆','🐥','🐦','🕊️','🦢'];
+for(let i=0;i<28;i++){const e=document.createElement('span');e.textContent=B[i%B.length];e.style.cssText=`position:absolute;left:${Math.random()*95}%;top:${Math.random()*95}%;font-size:${26+Math.random()*30}px;opacity:.55;transform:rotate(${Math.random()*40-20}deg)`;dk.appendChild(e)}
+const lk=document.getElementById('last');
+for(let i=0;i<14;i++){const e=document.createElement('span');e.className='bk';e.textContent='بحبك';e.style.left=Math.random()*85+'%';e.style.fontSize=(22+Math.random()*30)+'px';e.style.animationDuration=(9+Math.random()*9)+'s';e.style.animationDelay=(-Math.random()*14)+'s';lk.appendChild(e)}
+const T=new Date(2026,4,9,0,0,0).getTime();
+function tick(){let x=Math.max(0,Math.floor((Date.now()-T)/1000));
+d.textContent=Math.floor(x/86400);h.textContent=Math.floor(x%86400/3600);m.textContent=Math.floor(x%3600/60);s.textContent=x%60}
+tick();setInterval(tick,1000);
+function tg(){const a=document.getElementById('au');if(a.paused){a.play();pb.textContent='❚❚'}else{a.pause();pb.textContent='▶'}}
+document.getElementById('v2').addEventListener('play',()=>{const a=document.getElementById('au');a.pause();pb.textContent='▶'});
+
+const P=[...document.querySelectorAll('.book .pg')];let ci=0;
+function fp(d){ci=(ci+d+P.length)%P.length;P.forEach((p,i)=>p.classList.toggle('cur',i==ci));pn.textContent=(ci+1)+' / '+P.length;document.querySelectorAll('.book video').forEach(v=>v.pause())}
+fp(0);
+const O=['hero','album','letter','counter','last'],L={album:'Next page: the letter 💌',letter:'Next page: our time together ⏳',counter:'Next page: a message for you 💖',last:'Back to the start 🏠'},N={album:'letter',letter:'counter',counter:'last',last:'hero'};
+for(const k in N){const b=document.createElement('button');b.className='btn nx';b.textContent=L[k];b.onclick=()=>go(N[k]);document.getElementById(k).appendChild(b)}
+function go(id){document.querySelectorAll('video').forEach(v=>v.pause());document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id==id));window.scrollTo(0,0)}
+</script></body></html>
